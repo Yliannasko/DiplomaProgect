@@ -2,6 +2,7 @@ package ru.netology.diplomaprogect.data;
 
 import com.github.javafaker.Faker;
 import lombok.Value;
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.Locale;
 
@@ -11,36 +12,82 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    public static CardNumber getApprovedCard() {
-        return new CardNumber ("4444444444444441");
+    public static String getApprovedCard() {
+        return "4444444444444441";
     }
 
-    public static CardNumber getDeclinedCard() {
-        return new CardNumber("4444444444444442");
+    public static String getDeclinedCard() {
+        return "4444444444444442";
     }
 
-    public static String generateRandomMonth() {
-        return faker.numerify("##");
+    public static String getNewCardNumber() {
+        return faker.numerify("#### #### #### ####");
     }
-    public static String generateRandomYear() {
-        return faker.numerify("##");
+
+    public static String getCardNumber15Symbols() {
+        return faker.number().digits(15);
     }
-    public static String generateRandomCardOwner() {
-        return faker.name().username();
+
+    public static String getMonthNumber1symbol() {
+        return faker.numerify("#");
     }
-    public static String generateRandomCvv() {
+
+    public static String getMonthNumber() {
+        return String.format("%02d", faker.number().numberBetween(0, 13));
+    }
+
+         public static String getMonthNumberMoreThan12() {
+             return String.format("##", faker.number().numberBetween(13, 99));
+         }
+
+        public static String getMonthNumber00 () {
+            return "00";
+        }
+
+        public static String getYearNumber1symbol () {
+            return faker.numerify("#");
+        }
+        public static String getYear() {
+            return String.format("%02d", faker.number().numberBetween(23, 30));
+        }
+
+        public static String getYearNumberLessThanThisYear () {
+            return String.format("##", faker.number().numberBetween(00, 23));
+        }
+
+        public static String getYearNumber0 () {
+            return "0";
+        }
+    public static String getNameCardholder () {
+        return faker.name().firstName()+faker.name().lastName();
+    }
+
+        public static String getNameCardholderOneWord () {
+            return faker.name().firstName();
+        }
+
+        public static String getNameCardholderWithCyrillicAlphabet () {
+            Faker faker = new Faker(new Locale("ru"));
+            return faker.name().firstName() + faker.name().lastName();
+        }
+
+        public static String getNameCardholderWithNumbers () {
+            return faker.name().firstName() + faker.numerify("#####");
+        }
+
+        public static String getNameCardholderWithInvalidSymbol () {
+            return faker.name().firstName() + "!@_+*";
+        }
+    public static String getCVV () {
         return faker.numerify("###");
     }
-    @Value
-    public static class CardNumber {
-        String number;
-    }
-    @Value
-    public static class CardInfo {
-        String month;
-        String year;
-        String cardOwner;
-        String cvv;
+
+        public static String getCVVFromOneDigit () {
+            return faker.numerify("#");
+        }
+
+        public static String getCVVFromTwoDigit () {
+            return faker.numerify("##");
+        }
 
     }
-}
