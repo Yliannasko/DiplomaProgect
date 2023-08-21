@@ -152,7 +152,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month from 00")
-    public void testMonth00() {
+    public void testMonth00ForApprovedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber00());
@@ -165,7 +165,7 @@ public class BuyTest {
     }
     @Test
     @DisplayName("Payment for the tour if the month from 00")
-    public void testMonth00forDeclinedCard() {
+    public void testMonth00ForDeclinedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getDeclinedCard());
         buy.setCardMonth(DataHelper.getMonthNumber00());
