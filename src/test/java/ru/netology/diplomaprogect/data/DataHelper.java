@@ -92,5 +92,8 @@ public class DataHelper {
     public static String getCVVFromTwoDigit() {
         return faker.numerify("##");
     }
+    public static String getCVVWith000() {
+        return "000";
+    }
 
 }

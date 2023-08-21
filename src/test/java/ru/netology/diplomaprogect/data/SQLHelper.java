@@ -58,7 +58,7 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static String getOrderCount() {
+    public static long getOrderCount() {
         Long count = null;
         val codesSQL = "SELECT COUNT(*) FROM order_entity;";
         val runner = new QueryRunner();
@@ -67,6 +67,6 @@ public class SQLHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Long.toString(count);
+        return Long.parseLong(Long.toString(count));
     }
 }
