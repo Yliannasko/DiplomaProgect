@@ -4,13 +4,13 @@ import com.github.javafaker.Faker;
 import lombok.Value;
 import org.checkerframework.checker.units.qual.C;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.time.LocalDate;
+import java.lang.Math;
 
 public class DataHelper {
     public static Faker faker = new Faker(new Locale("en"));
-
-    private DataHelper() {
-    }
 
     public static String getApprovedCard() {
         return "4444444444444441";
@@ -28,36 +28,39 @@ public class DataHelper {
         return "444444444444444";
     }
 
-    public static String getMonthNumber1symbol() {
-        return faker.numerify("#");
+    public static String get1Digit() {return faker.numerify("#");}
+    public static String get2Digits() {
+        return faker.numerify("##");
+    }
+    public static String get3Digits() {
+        return faker.numerify("###");
+    }
+    public static String get00() {return "00";}
+    public static String get000() {
+        return "000";
     }
 
     public static String getMonthNumber() {
-        return String.format("%02d", faker.number().numberBetween(0, 13));
+        LocalDate currentData = LocalDate.now();
+        return currentData.format(DateTimeFormatter.ofPattern("MM"));
     }
 
     public static String getMonthNumberMoreThan12() {
-        return String.format("%02d", faker.number().numberBetween(13, 99));
-    }
-
-    public static String getMonthNumber00() {
-        return "00";
-    }
-
-    public static String getYearNumber1symbol() {
-        return faker.numerify("#");
+        int currentMonth = Integer.parseInt(getMonthNumber());
+        int moreMonth = currentMonth + 12;
+        return String.format("%02d", moreMonth % 100);
     }
 
     public static String getYear() {
-        return String.format("%02d", faker.number().numberBetween(23, 30));
+        LocalDate currentData = LocalDate.now();
+        LocalDate currentYear = currentData.plusYears(5);
+        return currentYear.format(DateTimeFormatter.ofPattern("YY"));
     }
 
     public static String getYearNumberLessThanThisYear() {
-        return String.format("%02d", faker.number().numberBetween(00, 23));
-    }
-
-    public static String getYearNumber00() {
-        return "00";
+        LocalDate currentData = LocalDate.now();
+        LocalDate currentYear = currentData.minusYears(1);
+        return currentYear.format(DateTimeFormatter.ofPattern("YY"));
     }
 
     public static String getNameCardholder() {
@@ -79,21 +82,6 @@ public class DataHelper {
 
     public static String getNameCardholderWithInvalidSymbol() {
         return faker.name().firstName() + "!@_+*";
-    }
-
-    public static String getCVV() {
-        return faker.numerify("###");
-    }
-
-    public static String getCVVFromOneDigit() {
-        return faker.numerify("#");
-    }
-
-    public static String getCVVFromTwoDigit() {
-        return faker.numerify("##");
-    }
-    public static String getCVVWith000() {
-        return "000";
     }
 
 }

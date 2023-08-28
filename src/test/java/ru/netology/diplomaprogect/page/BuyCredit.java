@@ -27,7 +27,7 @@ public class BuyCredit {
     private SelenideElement continueButton = $$("button").find(exactText("Продолжить"));
 
     public void buyCreditCard() {
-        open("http://localhost:8080/");
+        open("http://localhost:8080");
         heading.shouldBe(visible);
         buyCreditButton.click();
     }

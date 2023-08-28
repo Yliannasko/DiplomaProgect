@@ -1,3 +1,4 @@
+.idea/
 Thumbs.db*
 .DS_Store
 HELP.md
@@ -14,7 +15,7 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr

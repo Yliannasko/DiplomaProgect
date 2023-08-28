@@ -48,7 +48,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.approvedStatus();
         assertEquals("APPROVED", SQLHelper.getPaymentStatus());
@@ -62,7 +62,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.declinedStatus();
         assertEquals("DECLINED", SQLHelper.getPaymentStatus());
@@ -75,7 +75,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -89,7 +89,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -103,7 +103,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.declinedStatus();
         assertEquals(0, getOrderCount());
@@ -116,7 +116,7 @@ public class BuyTest {
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -127,10 +127,10 @@ public class BuyTest {
     public void testMonth1Digit() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
-        buy.setCardMonth(DataHelper.getMonthNumber1symbol());
+        buy.setCardMonth(DataHelper.get1Digit());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -144,7 +144,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumberMoreThan12());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.cardExpirationError();
         assertEquals(0, getOrderCount());
@@ -155,10 +155,10 @@ public class BuyTest {
     public void testMonth00ForApprovedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
-        buy.setCardMonth(DataHelper.getMonthNumber00());
+        buy.setCardMonth(DataHelper.get00());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -168,10 +168,10 @@ public class BuyTest {
     public void testMonth00ForDeclinedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getDeclinedCard());
-        buy.setCardMonth(DataHelper.getMonthNumber00());
+        buy.setCardMonth(DataHelper.get00());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -184,7 +184,7 @@ public class BuyTest {
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -196,9 +196,9 @@ public class BuyTest {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
-        buy.setCardYear(DataHelper.getYearNumber1symbol());
+        buy.setCardYear(DataHelper.get1Digit());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -212,7 +212,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYearNumberLessThanThisYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.cardExpired();
         assertEquals(0, getOrderCount());
@@ -224,9 +224,9 @@ public class BuyTest {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
-        buy.setCardYear(DataHelper.getYearNumber00());
+        buy.setCardYear(DataHelper.get00());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.cardExpired();
         assertEquals(0, getOrderCount());
@@ -239,7 +239,7 @@ public class BuyTest {
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.fieldRequired();
         assertEquals(0, getOrderCount());
@@ -253,7 +253,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholderOneWord());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -267,7 +267,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholderWithCyrillicAlphabet());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -281,7 +281,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholderWithNumbers());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -295,7 +295,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholderWithInvalidSymbol());
-        buy.setCardCvv(DataHelper.getCVV());
+        buy.setCardCvv(DataHelper.get3Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -322,7 +322,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVVFromOneDigit());
+        buy.setCardCvv(DataHelper.get1Digit());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -336,7 +336,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVVFromTwoDigit());
+        buy.setCardCvv(DataHelper.get2Digits());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
@@ -349,7 +349,7 @@ public class BuyTest {
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
         buy.setCardholder(DataHelper.getNameCardholder());
-        buy.setCardCvv(DataHelper.getCVVWith000());
+        buy.setCardCvv(DataHelper.get000());
         buy.clickContinueButton();
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
