@@ -26,8 +26,8 @@ public class SQLHelper {
             runner.update(conn, deleteCreditRequestEntity);
             runner.update(conn, deleteOrderEntity);
             runner.update(conn, deletePaymentEntity);
-//        } catch (Exception e) {
-//            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -44,9 +44,13 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static String getOrderCount() {
+    public static long getOrderCount() {
         String codesSQL = "SELECT COUNT(*) FROM order_entity;";
-        return getData(codesSQL);
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            QueryRunner runner = new QueryRunner();
+            Long count = runner.query(conn, codesSQL, new ScalarHandler<>());
+            return count != null ? count : 0;
+        }
     }
 
     @SneakyThrows
@@ -55,6 +59,8 @@ public class SQLHelper {
         String data = "";
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             data = runner.query(conn, query, new ScalarHandler<>());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return data;
     }

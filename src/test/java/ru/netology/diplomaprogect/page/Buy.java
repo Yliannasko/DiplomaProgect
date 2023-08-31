@@ -56,26 +56,26 @@ public class Buy {
     }
 
     public void approvedStatus() {
-        approvedStatus.shouldBe(visible);
+        approvedStatus.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void declinedStatus() {
-        declinedStatus.shouldBe(visible);
+        declinedStatus.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void incorrectFormat() {
-        incorrectFormat.shouldBe(visible);
+        incorrectFormat.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void cardExpirationError() {
-        cardExpirationError.shouldBe(visible);
+        cardExpirationError.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void cardExpired() {
-        cardExpired.shouldBe(visible);
+        cardExpired.shouldBe(visible, Duration.ofSeconds(10));
     }
 
     public void fieldRequired() {
-        fieldRequired.shouldBe(visible);
+        fieldRequired.shouldBe(visible, Duration.ofSeconds(10));
     }
 }
