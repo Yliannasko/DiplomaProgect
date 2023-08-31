@@ -56,26 +56,26 @@ public class BuyCredit {
     }
 
     public void approvedStatus() {
-        approvedStatus.shouldBe(visible, Duration.ofSeconds(10));
+        approvedStatus.shouldBe(visible, Duration.ofSeconds(5));
     }
 
     public void declinedStatus() {
-        declinedStatus.shouldBe(visible, Duration.ofSeconds(10));
+        declinedStatus.shouldBe(visible, Duration.ofSeconds(5));
     }
 
     public void incorrectFormat() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(10));
+        incorrectFormat.shouldBe(visible, Duration.ofSeconds(5));
     }
 
     public void cardExpirationError() {
-        cardExpirationError.shouldBe(visible, Duration.ofSeconds(10));
+        cardExpirationError.shouldBe(visible, Duration.ofSeconds(5));
     }
 
     public void cardExpired() {
-        cardExpired.shouldBe(visible, Duration.ofSeconds(10));
+        cardExpired.shouldBe(visible, Duration.ofSeconds(5));
     }
 
     public void fieldRequired() {
-        fieldRequired.shouldBe(visible, Duration.ofSeconds(10));
+        fieldRequired.shouldBe(visible, Duration.ofSeconds(5));
     }
 }
