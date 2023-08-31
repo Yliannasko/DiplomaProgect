@@ -17,12 +17,12 @@ import static ru.netology.diplomaprogect.data.SQLHelper.cleanDatabase;
 import static ru.netology.diplomaprogect.data.SQLHelper.getOrderCount;
 
 public class BuyTest {
+    public static String url = System.getProperty("sut.url");
     Buy buy = new Buy();
 
     @BeforeEach
-    void setup() {
-        open("http://localhost:8080");
-
+    public void openPage() {
+        open(url);
     }
 
     @BeforeEach
@@ -163,6 +163,7 @@ public class BuyTest {
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
     }
+
     @Test
     @DisplayName("Payment for the tour if the month from 00")
     public void testMonth00ForDeclinedCard() {
@@ -341,6 +342,7 @@ public class BuyTest {
         buy.incorrectFormat();
         assertEquals(0, getOrderCount());
     }
+
     @Test
     @DisplayName("Payment for the tour if the cvv from 000")
     public void testCvv000() {

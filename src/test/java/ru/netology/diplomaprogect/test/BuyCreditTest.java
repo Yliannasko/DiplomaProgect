@@ -18,22 +18,24 @@ import static ru.netology.diplomaprogect.data.SQLHelper.cleanDatabase;
 import static ru.netology.diplomaprogect.data.SQLHelper.getOrderCount;
 
 public class BuyCreditTest {
+    public static String url = System.getProperty("sut.url");
     BuyCredit buyCredit = new BuyCredit();
 
-//    @BeforeEach
-//    void setup() {
-//        open("http://localhost:8080");
-//
-//    }
+    @BeforeEach
+    public void openPage() {
+        open(url);
+    }
+
     @BeforeAll
     static void setAll() {
-    SelenideLogger.addListener("allure", new AllureSelenide());
-}
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
     @AfterAll
     static void tearDown() {
         SelenideLogger.removeListener("allure");
     }
+
     @BeforeEach
     public void cleanDataBase() {
         SQLHelper.cleanDatabase();
@@ -163,6 +165,7 @@ public class BuyCreditTest {
         buyCredit.incorrectFormat();
         assertEquals(0, getOrderCount());
     }
+
     @Test
     @DisplayName("Payment for the tour if the month from 00 for Declined card")
     public void testMonth00forDeclinedCard() {
@@ -341,6 +344,7 @@ public class BuyCreditTest {
         buyCredit.incorrectFormat();
         assertEquals(0, getOrderCount());
     }
+
     @Test
     @DisplayName("Payment for the tour if the cvv from 000")
     public void testCvv000() {

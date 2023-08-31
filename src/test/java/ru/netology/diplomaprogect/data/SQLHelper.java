@@ -33,31 +33,19 @@ public class SQLHelper {
 
     @SneakyThrows
     public static String getPaymentStatus() {
-        var codesSQL = "SELECT status FROM payment_entity";
+        String codesSQL = "SELECT status FROM payment_entity";
         return getData(codesSQL);
     }
 
     @SneakyThrows
     public static String getCreditStatus() {
-        var codesSQL = "SELECT status FROM credit_request_entity;";
+        String codesSQL = "SELECT status FROM credit_request_entity;";
         return getData(codesSQL);
     }
+
     @SneakyThrows
     public static String getOrderCount() {
-//        QueryRunner runner = new QueryRunner();
-//        Long count = null;
-        var codesSQL = "SELECT COUNT(*) FROM order_entity;";
-//        try (var conn = DriverManager.getConnection(url, user, password)) {
-//            count = runner.query(conn, codesSQL, new ScalarHandler<>());
-//        Long count = null;
-//        var codesSQL = "SELECT COUNT(*) FROM order_entity;";
-//        var runner = new QueryRunner();
-//        try (var conn = DriverManager.getConnection(url, user, password)) {
-//            count = runner.query(conn, codesSQL, new ScalarHandler<>());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-
-      //  return Long.toString(count);
+        String codesSQL = "SELECT COUNT(*) FROM order_entity;";
         return getData(codesSQL);
     }
 
@@ -68,11 +56,6 @@ public class SQLHelper {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             data = runner.query(conn, query, new ScalarHandler<>());
         }
-//       try (var conn = DriverManager.getConnection(url, user, password)) {
-//            data = runner.query(conn, query, new ScalarHandler<>());
-//       } catch (SQLException e){
-//            e.printStackTrace();
-//    }
         return data;
     }
 }

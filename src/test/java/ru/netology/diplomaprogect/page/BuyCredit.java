@@ -27,8 +27,7 @@ public class BuyCredit {
     private SelenideElement continueButton = $$("button").find(exactText("Продолжить"));
 
     public void buyCreditCard() {
-        open("http://localhost:8080");
-        heading.shouldBe(visible);
+        heading.shouldBe(visible, Duration.ofSeconds(15));
         buyCreditButton.click();
     }
 
@@ -57,26 +56,26 @@ public class BuyCredit {
     }
 
     public void approvedStatus() {
-        approvedStatus.shouldBe(visible, Duration.ofSeconds(10));
+        approvedStatus.shouldBe(visible);
     }
 
     public void declinedStatus() {
-        declinedStatus.shouldBe(visible, Duration.ofSeconds(10));
+        declinedStatus.shouldBe(visible);
     }
 
     public void incorrectFormat() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(10));
+        incorrectFormat.shouldBe(visible);
     }
 
     public void cardExpirationError() {
-        cardExpirationError.shouldBe(visible, Duration.ofSeconds(10));
+        cardExpirationError.shouldBe(visible);
     }
 
     public void cardExpired() {
-        cardExpired.shouldBe(visible, Duration.ofSeconds(10));
+        cardExpired.shouldBe(visible);
     }
 
     public void fieldRequired() {
-        fieldRequired.shouldBe(visible, Duration.ofSeconds(10));
+        fieldRequired.shouldBe(visible);
     }
 }

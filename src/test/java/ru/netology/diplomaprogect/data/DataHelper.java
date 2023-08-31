@@ -28,14 +28,22 @@ public class DataHelper {
         return "444444444444444";
     }
 
-    public static String get1Digit() {return faker.numerify("#");}
+    public static String get1Digit() {
+        return faker.numerify("#");
+    }
+
     public static String get2Digits() {
         return faker.numerify("##");
     }
+
     public static String get3Digits() {
         return faker.numerify("###");
     }
-    public static String get00() {return "00";}
+
+    public static String get00() {
+        return "00";
+    }
+
     public static String get000() {
         return "000";
     }
