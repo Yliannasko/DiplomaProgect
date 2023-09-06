@@ -1,14 +1,10 @@
 package ru.netology.diplomaprogect.data;
 
-import lombok.SneakyThrows;
-
 import org.apache.commons.dbutils.QueryRunner;
 
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.*;
-
-import static org.openqa.selenium.remote.http.FormEncodedData.getData;
 
 public class SQLHelper {
 
