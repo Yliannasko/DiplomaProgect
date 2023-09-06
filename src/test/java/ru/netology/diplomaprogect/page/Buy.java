@@ -1,7 +1,7 @@
 package ru.netology.diplomaprogect.page;
 
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.diplomaprogect.data.DataHelper;
+
 
 import java.time.Duration;
 
@@ -27,7 +27,7 @@ public class Buy {
     private SelenideElement continueButton = $$("button").find(exactText("Продолжить"));
 
     public void buyDebitCard() {
-        heading.shouldBe(visible, Duration.ofSeconds(15));
+        heading.shouldBe(visible);
         buyButton.click();
     }
 
@@ -56,26 +56,26 @@ public class Buy {
     }
 
     public void approvedStatus() {
-        approvedStatus.shouldBe(visible, Duration.ofSeconds(5));
+        approvedStatus.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void declinedStatus() {
-        declinedStatus.shouldBe(visible, Duration.ofSeconds(5));
+        declinedStatus.shouldBe(visible, Duration.ofSeconds(15));
     }
 
     public void incorrectFormat() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(5));
+        incorrectFormat.shouldBe(visible);
     }
 
     public void cardExpirationError() {
-        cardExpirationError.shouldBe(visible, Duration.ofSeconds(5));
+        cardExpirationError.shouldBe(visible);
     }
 
     public void cardExpired() {
-        cardExpired.shouldBe(visible, Duration.ofSeconds(5));
+        cardExpired.shouldBe(visible);
     }
 
     public void fieldRequired() {
-        fieldRequired.shouldBe(visible, Duration.ofSeconds(5));
+        fieldRequired.shouldBe(visible);
     }
 }

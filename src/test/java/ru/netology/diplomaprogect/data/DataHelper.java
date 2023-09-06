@@ -1,13 +1,11 @@
 package ru.netology.diplomaprogect.data;
 
 import com.github.javafaker.Faker;
-import lombok.Value;
-import org.checkerframework.checker.units.qual.C;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.time.LocalDate;
-import java.lang.Math;
+
 
 public class DataHelper {
     public static Faker faker = new Faker(new Locale("en"));
