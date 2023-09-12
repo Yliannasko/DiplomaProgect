@@ -41,7 +41,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Should purchase must be successful with card number from the database")
-    public void shouldSuccessfulPurchase() throws SQLException {
+    public void shouldSuccessfulPurchase() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -55,7 +55,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Should purchase must be unsuccessful with card from the database")
-    public void shouldUnsuccessfulPurchase() throws SQLException {
+    public void shouldUnsuccessfulPurchase() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getDeclinedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -69,7 +69,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the card number is missing")
-    public void testCardNumberEmpty() throws SQLException {
+    public void testCardNumberEmpty() {
         buy.buyDebitCard();
         buy.setCardMonth(DataHelper.getMonthNumber());
         buy.setCardYear(DataHelper.getYear());
@@ -82,7 +82,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the card number less than 16 digits")
-    public void testCardNumberLess16Digits() throws SQLException {
+    public void testCardNumberLess16Digits() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getCardNumber15Symbols());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -96,7 +96,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour new card number")
-    public void testNewCardNumber() throws SQLException {
+    public void testNewCardNumber() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getNewCardNumber());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -110,7 +110,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month is missing ")
-    public void testMonthEmpty() throws SQLException {
+    public void testMonthEmpty() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardYear(DataHelper.getYear());
@@ -123,7 +123,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month from 1 digit ")
-    public void testMonth1Digit() throws SQLException {
+    public void testMonth1Digit() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.get1Digit());
@@ -137,7 +137,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month value greater than 12")
-    public void testMonthMore12() throws SQLException {
+    public void testMonthMore12() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumberMoreThan12());
@@ -151,7 +151,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month from 00 for approved card")
-    public void testMonth00ForApprovedCard() throws SQLException {
+    public void testMonth00ForApprovedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.get00());
@@ -165,7 +165,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the month from 00 for declined card")
-    public void testMonth00ForDeclinedCard() throws SQLException {
+    public void testMonth00ForDeclinedCard() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getDeclinedCard());
         buy.setCardMonth(DataHelper.get00());
@@ -179,7 +179,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the year from is missing")
-    public void testYearEmpty() throws SQLException {
+    public void testYearEmpty() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -192,7 +192,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the year from 1 digit")
-    public void testYear1Digit() throws SQLException {
+    public void testYear1Digit() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -206,7 +206,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the year less than the current one")
-    public void testYearExpired() throws SQLException {
+    public void testYearExpired() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -220,7 +220,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the year 00")
-    public void testYear00() throws SQLException {
+    public void testYear00() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -234,7 +234,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cardholder empty")
-    public void testCardholderEmpty() throws SQLException {
+    public void testCardholderEmpty() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -247,7 +247,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cardholder from one word")
-    public void testCardholderOneWord() throws SQLException {
+    public void testCardholderOneWord() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -261,7 +261,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cardholder from the cyrillic alphabet")
-    public void testCardholderCyrillic() throws SQLException {
+    public void testCardholderCyrillic() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -275,7 +275,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cardholder with digits")
-    public void testCardholderWithDigits() throws SQLException {
+    public void testCardholderWithDigits() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -289,7 +289,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cardholder with invalid symbol")
-    public void testCardholderWithInvalidSymbol() throws SQLException {
+    public void testCardholderWithInvalidSymbol() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -303,7 +303,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cvv empty")
-    public void testCvvEmpty() throws SQLException {
+    public void testCvvEmpty() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -316,7 +316,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cvv from 1 digit")
-    public void testCvv1Digit() throws SQLException {
+    public void testCvv1Digit() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -330,7 +330,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cvv from 2 digits")
-    public void testCvv2Digits() throws SQLException {
+    public void testCvv2Digits() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());
@@ -344,7 +344,7 @@ public class BuyTest {
 
     @Test
     @DisplayName("Payment for the tour if the cvv from 000")
-    public void testCvv000() throws SQLException {
+    public void testCvv000() {
         buy.buyDebitCard();
         buy.setCardNumber(DataHelper.getApprovedCard());
         buy.setCardMonth(DataHelper.getMonthNumber());

@@ -1,5 +1,6 @@
 package ru.netology.diplomaprogect.data;
 
+import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -12,7 +13,8 @@ public class SQLHelper {
     private static final String user = System.getProperty("db.user");
     private static final String password = System.getProperty("db.password");
 
-    public static void cleanDatabase() throws SQLException {
+    @SneakyThrows
+    public static void cleanDatabase() {
         String deleteCreditRequestEntity = "DELETE FROM credit_request_entity";
         String deleteOrderEntity = "DELETE FROM order_entity";
         String deletePaymentEntity = "DELETE FROM payment_entity";
@@ -25,17 +27,20 @@ public class SQLHelper {
         conn.close();
     }
 
-    public static String getPaymentStatus() throws SQLException {
+    @SneakyThrows
+    public static String getPaymentStatus() {
         String codesSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         return getData(codesSQL);
     }
 
-    public static String getCreditStatus() throws SQLException {
+    @SneakyThrows
+    public static String getCreditStatus() {
         String codesSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1;";
         return getData(codesSQL);
     }
 
-    public static long getOrderCount() throws SQLException {
+    @SneakyThrows
+    public static long getOrderCount() {
         String codesSQL = "SELECT COUNT(*) FROM order_entity;";
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             QueryRunner runner = new QueryRunner();
@@ -44,7 +49,8 @@ public class SQLHelper {
         }
     }
 
-    private static String getData(String query) throws SQLException {
+    @SneakyThrows
+    private static String getData(String query) {
         QueryRunner runner = new QueryRunner();
         String data = "";
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
