@@ -8,8 +8,6 @@ import ru.netology.diplomaprogect.data.DataHelper;
 import ru.netology.diplomaprogect.data.SQLHelper;
 import ru.netology.diplomaprogect.page.Buy;
 
-import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +23,7 @@ public class BuyTest {
     }
 
     @AfterEach
-    public void cleanDataBase() throws SQLException {
+    public void cleanDataBase() {
         SQLHelper.cleanDatabase();
     }
 

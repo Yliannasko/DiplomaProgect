@@ -9,8 +9,6 @@ import ru.netology.diplomaprogect.data.SQLHelper;
 
 import ru.netology.diplomaprogect.page.BuyCredit;
 
-import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.diplomaprogect.data.SQLHelper.getOrderCount;
@@ -35,7 +33,7 @@ public class BuyCreditTest {
     }
 
     @AfterEach
-    public void cleanDataBase() throws SQLException {
+    public void cleanDataBase() {
         SQLHelper.cleanDatabase();
     }
 
